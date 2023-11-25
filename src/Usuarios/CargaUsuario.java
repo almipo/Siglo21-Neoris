@@ -40,7 +40,7 @@ public class CargaUsuario {
                     while (nombre.length() == 0) {
                         nombre = JOptionPane.showInputDialog("PORFAVOR COMPLETE EL NOMBRE");
                     }
-                        //ingreso apellido con verificacion que el campo no este vacio
+                    //ingreso apellido con verificacion que el campo no este vacio
                     apellido = JOptionPane.showInputDialog("Ingrese el apellido:");
                     while (apellido == null || apellido.length() == 0) {
                         apellido = JOptionPane.showInputDialog("PORFAVOR COMPLETE EL APELLIDO");
@@ -48,10 +48,11 @@ public class CargaUsuario {
 
                     //ingreso dni con verificacion que sea igual a 8 digitos
                     dni = JOptionPane.showInputDialog("Ingrese el DNI");
-                    while (dni == null || dni.length() != 8) {
+                    int idni = Integer.parseInt(dni);
+                    while (dni == null || dni.length() != 8 || !dni.matches("\\d+")) {
                         dni = JOptionPane.showInputDialog("PORFAVOR COMPLETE EL DNI CON 8 NUMEROS");
                     }
-
+  
                     //ingreso año de nacimiento comprobando que no tenga mas de 100 años y que no sea un año superior a 2023
                     ano = JOptionPane.showInputDialog("Ingrese el año de nacimiento con numeros");
                     iano = Integer.parseInt(ano);
@@ -112,8 +113,7 @@ public class CargaUsuario {
                     }
 
                     fecha = dia + "/" + mes + "/" + ano;
-                    
-                    
+
                     //guardamos los datos de los usuarios en una lista
                     int respuesta = JOptionPane.showConfirmDialog(null, "¿Quieres guardar los datos ingresados?", "GUARDAR", JOptionPane.YES_NO_OPTION);
                     if (respuesta == JOptionPane.YES_OPTION) {
@@ -123,7 +123,7 @@ public class CargaUsuario {
 
                     break;
                 }
-                  //muestra los datos que se guardarom
+                //muestra los datos que se guardarom
                 case 2: {
                     for (String usuario : listaUsuarios) {
                         JOptionPane.showMessageDialog(null, usuario, "Datos del Usuario", JOptionPane.INFORMATION_MESSAGE);
@@ -131,7 +131,7 @@ public class CargaUsuario {
                     break;
                 }
             }
-            
+
             //vuelvo a mostrar menu para poder mostrar, cargar o salir
             opcion = JOptionPane.showInputDialog("Ingrese la opcion correspondiente \n 0-terminar carga \n 1-cargar datos  \n  2-Mostrar datos \n");
 
